@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <appSettings>
+    
+    <!--  Project : GENERIC , LTA  -->
+    <add key="Project" value="LTA"/>
+    <add key="RSpecFilePath" value="C:\Users\212428202\Documents\01 PROJECTS\LTA\ITS_DELTA_MAIN\TEAMS\TEAM_SYS_IV\SYS_IXL\LTA\T252-CBI-RS-002-r03.docx"/>
+    <add key="ASpecFilePath" value="C:\Users\212428202\Documents\01 PROJECTS\LTA\ITS_DELTA_MAIN\TEAMS\TEAM_SYS_IV\SYS_IXL\LTA\T252-CBI-AS-003-r02.docx"/>
+    
+    
+    <add key="BaselineFolderPath" value="C:\Users\212428202\Documents\01 PROJECTS\LTA\ITS_DELTA_MAIN\TEAMS\TEAM_SYS_IV\SYS_IXL\LTA"/>
+
+    <add key="TestRequirementPhase2" value="C:\Users\212428202\Documents\01 PROJECTS\LTA\ITS_DELTA_MAIN\TEAMS\TEAM_SYS_IV\SYS_IXL\LTA\Phase 2\Documents\Test Specification\Test Requirements\TR_LTA_IXL_BL1_Ph2_rev2_Merged_1.1.2.xlsx"/>
+    <add key="TestRequirementPhase3" value="C:\Users\212428202\Documents\01 PROJECTS\LTA\ITS_DELTA_MAIN\TEAMS\TEAM_SYS_IV\SYS_IXL\LTA\Phase 3\Documents\Test Specification\Test Requirements\TR_LTA_IXL_BL1_Ph3_rev1.xlsx"/>
+
+    <!--  Drive R: will be created with respect to the Baseline Folder -->
+
+    <add key="Ph2SetofPrinciple" value="R:\Phase 2\Testing\BL1_1_3\Set_Of_Principles_Test"/>
+    <add key="GenericSequencesPath" value="R:\Phase 3\Testing\Test sequences\Generic sequences"/>    
+    <add key="InstantiatedSeqPath" value="R:\Phase 3\Testing\Test sequences\Instantiated sequences"/>
+  </appSettings>
+</configuration>

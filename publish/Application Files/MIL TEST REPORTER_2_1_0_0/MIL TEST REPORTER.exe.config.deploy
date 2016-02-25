@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <appSettings>
+    <add key="RSpecFilePath" value="C:\Users\212428202\Desktop\RS-DLT-IXL-021-r06.docx"/>
+    <add key="ASpecFilePath" value="C:\Users\212428202\Desktop\AS-DLT-IXL-022-r07.docx"/>
+   
+    <add key="BaselineFolderPath" value="C:\Users\212428202\Documents\01 PROJECTS\LTA\ITS_DELTA_MAIN\TEAMS\TEAM_SYS_IV\SYS_IXL\BL3"/>
+
+    <add key="TestRequirementPhase2" value="C:\Users\212428202\Documents\01 PROJECTS\LTA\ITS_DELTA_MAIN\TEAMS\TEAM_SYS_IV\SYS_IXL\BL3\Phase2\Documents\Test_Specification\Test_Requirements\TestRequirements_IXL_BL3_Phase2_r01_draft - SJ.xls"/>
+    <add key="TestRequirementPhase3" value="C:\Users\212428202\Documents\01 PROJECTS\LTA\ITS_DELTA_MAIN\TEAMS\TEAM_SYS_IV\SYS_IXL\BL3\Phase3\Documents\Test Specification\Test Requirements\TestRequirements_IXL_BL3_Phase3_r00.xlsm"/>
+  </appSettings>
+</configuration>
