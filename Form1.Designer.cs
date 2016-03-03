@@ -129,7 +129,7 @@
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1370, 750);
+            this.tabControl2.Size = new System.Drawing.Size(1276, 750);
             this.tabControl2.TabIndex = 1;
             this.tabControl2.SelectedIndexChanged += new System.EventHandler(this.Form1_Load);
             this.tabControl2.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl2_Selected);
@@ -160,7 +160,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1362, 712);
+            this.tabPage2.Size = new System.Drawing.Size(1268, 712);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Phase 2";
             // 
@@ -394,12 +394,12 @@
             this.contextMenuResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openResultToolStripMenuItem});
             this.contextMenuResult.Name = "contextMenuResult";
-            this.contextMenuResult.Size = new System.Drawing.Size(134, 26);
+            this.contextMenuResult.Size = new System.Drawing.Size(139, 26);
             // 
             // openResultToolStripMenuItem
             // 
             this.openResultToolStripMenuItem.Name = "openResultToolStripMenuItem";
-            this.openResultToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.openResultToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.openResultToolStripMenuItem.Text = "Open Result";
             this.openResultToolStripMenuItem.Click += new System.EventHandler(this.openResultToolStripMenuItem_Click);
             // 
@@ -925,7 +925,7 @@
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(1370, 750);
+            this.ClientSize = new System.Drawing.Size(1276, 750);
             this.Controls.Add(this.tabControl2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";

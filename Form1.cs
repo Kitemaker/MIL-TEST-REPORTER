@@ -229,16 +229,22 @@ namespace MIL_TEST_REPORTER
             if (Directory.Exists(_path))
             {
                 InstanSeqDir = new System.IO.DirectoryInfo(_path);
-
-                foreach (DirectoryInfo dinfo in InstanSeqDir.GetDirectories())
+                if (InstanSeqDir.GetDirectories().Length == 0)
                 {
-                    this.FunctionListBox.Items.Add(dinfo.Name);
+                    MessageBox.Show(this, "Test Sequences are not found at specified location \n" + _path, "UpdateList",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+                else
+                {
+                    foreach (DirectoryInfo dinfo in InstanSeqDir.GetDirectories())
+                    {
+                        this.FunctionListBox.Items.Add(dinfo.Name);
 
+                    }
                 }
             }
             else
             {
-                MessageBox.Show("Path " + _path + " does not exist.", "Path Not Found");
+                MessageBox.Show(this,"Path " + _path + " does not exist.", "UpdateList",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
@@ -458,16 +464,18 @@ namespace MIL_TEST_REPORTER
 
         private string GetTestReqFromSeqFile(string SeqFIlePath)
         {
-            Eng = new TestStandAPI.Engine();
+            
             int stepCount, seqCount;
             string req = string.Empty;
             TestStandAPI.SequenceFile testfile;
-            testfile = (TestStandAPI.SequenceFile)Eng.GetSequenceFileEx(SeqFIlePath);
-            seqCount = testfile.NumSequences;//(TestStandAPI.StepGroups.StepGroup_Main);
-
-            ProgDialog.lblStepDetail.Text = SeqFIlePath;
+           
             try
             {
+                Eng = new TestStandAPI.Engine();
+                testfile = (TestStandAPI.SequenceFile)Eng.GetSequenceFileEx(SeqFIlePath);
+                seqCount = testfile.NumSequences;//(TestStandAPI.StepGroups.StepGroup_Main);
+
+                ProgDialog.lblStepDetail.Text = SeqFIlePath;
                 for (int i = 0; i < seqCount; i++)
                 {
                     TestStandAPI.Sequence testseq = testfile.GetSequence(i); // Steps in MainSequence
@@ -511,20 +519,28 @@ namespace MIL_TEST_REPORTER
             Excel.Range range1, range2, range3, range4, rangeNA_TR;
             ExcelApp = new Microsoft.Office.Interop.Excel.Application();
             ExcelApp.Visible = false;
-
-
-            if (Phase == 2)
+            try
             {
-                TestSpec = ExcelApp.Workbooks.Open(TestRequirementPhase2);
-                TestReqSheet = (Excel.Worksheet)TestSpec.Worksheets["Test_Requirements"];
-                
+
+                if (Phase == 2)
+                {
+                    TestSpec = ExcelApp.Workbooks.Open(TestRequirementPhase2);
+                    TestReqSheet = (Excel.Worksheet)TestSpec.Worksheets["Test_Requirements"];
+
+                }
+                else
+                {
+                    TestSpec = ExcelApp.Workbooks.Open(TestRequirementPhase3);
+                    TestReqSheet = (Excel.Worksheet)TestSpec.Worksheets["Test_Requirements"];
+
+                }
             }
-            else
+            catch (Exception exc)
             {
-                TestSpec = ExcelApp.Workbooks.Open(TestRequirementPhase3);
-                TestReqSheet = (Excel.Worksheet)TestSpec.Worksheets["Test_Requirements"];
-                
+                MessageBox.Show(this, exc.Message + "error while finding the test requirements", "GetTestRequirementFromExcel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+            
 
 
             ProgDialog = new ProgressForm();
@@ -543,9 +559,9 @@ namespace MIL_TEST_REPORTER
                 {
                     progressBarIXL.Value = n + 1;
                     range1 = range.Rows.get_Item(n, Type.Missing);
-                    range2 = range1.Columns.get_Item(2, Type.Missing);
-                    range3 = range1.Columns.get_Item(3, Type.Missing);
-                    range4 = range1.Columns.get_Item(4, Type.Missing);
+                    range2 = range1.Columns.get_Item(3, Type.Missing);
+                    range3 = range1.Columns.get_Item(4, Type.Missing);
+                    range4 = range1.Columns.get_Item(5, Type.Missing);
 
                     if (ProjectName == "LTA")
                     { rangeNA_TR = range1.Columns.get_Item(9, Type.Missing); }
@@ -559,15 +575,10 @@ namespace MIL_TEST_REPORTER
                         TestReq = Convert.ToString(range4.Value);
                     }
                     else
-                    {
-                        if (ProjectName == "LTA")
-                        {
-                            TestReq = Convert.ToString(range4.Value);
-                        }
-                        else
-                        {
-                            TestReq = Convert.ToString(range3.Value);
-                        }
+                    {                       
+                       
+                       TestReq = Convert.ToString(range3.Value);
+                        
                         
                     }
                     string add = range2.Cells.Address;
@@ -592,8 +603,13 @@ namespace MIL_TEST_REPORTER
                 }
                 catch (System.Exception e)
                 {
-                    MessageBox.Show(e.Message + "GetTestRequirementFromExcel");
+                    MessageBox.Show(this, e.Message + "\n method:GetTestRequirementFromExcel", "GetTestRequirementFromExcel",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     this.Cursor = System.Windows.Forms.Cursors.Arrow;
+                    TestSpec.Close();
+                    System.Runtime.InteropServices.Marshal.FinalReleaseComObject(ExcelApp);
+                    ExcelApp = null;
+                    return;
+                    
                 }
 
             }

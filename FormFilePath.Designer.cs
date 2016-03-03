@@ -238,8 +238,7 @@
             this.Controls.Add(this.lblBLPath);
             this.Name = "FormFilePath";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Settings";
-            this.Load += new System.EventHandler(this.FormFilePath_Load);
+            this.Text = "Settings";            
             this.ResumeLayout(false);
             this.PerformLayout();
 
